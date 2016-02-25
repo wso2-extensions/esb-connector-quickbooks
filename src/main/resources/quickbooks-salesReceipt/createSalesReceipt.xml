@@ -1,20 +1,20 @@
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
- ~  Version 2.0 (the "License"); you may not use this file except
- ~  in compliance with the License.
- ~  You may obtain a copy of the License at
- ~
- ~    http://www.apache.org/licenses/LICENSE-2.0
- ~
- ~  Unless required by applicable law or agreed to in writing,
- ~  software distributed under the License is distributed on an
- ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- ~  KIND, either express or implied.  See the License for the
- ~  specific language governing permissions and limitations
- ~  under the License.
--->
+  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~   WSO2 Inc. licenses this file to you under the Apache License,
+  ~   Version 2.0 (the "License"); you may not use this file except
+  ~   in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing,
+  ~  software distributed under the License is distributed on an
+  ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~  KIND, either express or implied.  See the License for the
+  ~  specific language governing permissions and limitations
+  ~  under the License.
+  -->
 <template name="createSalesReceipt" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="customField" description="Custom field or data extension."/>
     <parameter name="docNumber" description="Reference number for the transaction."/>
@@ -29,8 +29,8 @@
     <parameter name="autoIncrementDocNumber" description="A boolean flag to auto increment the doc number."/>
     <parameter name="customerRef" description="Reference to a Customer or job."/>
     <parameter name="customerMemo" description="The user-entered message to the customer that appears in the printed invoice or the memo of
-  												the transaction to provide more detail, and does not appear in the printed message of the 
-  												bill or the message appears in the printed record if it is an invoice or Bill or Credit Card respectively. "/>
+                                                the transaction to provide more detail, and does not appear in the printed message of the
+                                                bill or the message appears in the printed record if it is an invoice or Bill or Credit Card respectively. "/>
     <parameter name="billAddr" description="Bill-to address of the receipt."/>
     <parameter name="shipAddr" description="Shipping address of the receipt."/>
     <parameter name="classRef" description="Reference to the Class associated with the transaction."/>
@@ -106,145 +106,145 @@
         <!-- Building payload for optional params -->
         <script language="js">
         <![CDATA[
-		    payload = mc.getPayloadJSON();
-		    var customField = mc.getProperty("uri.var.customField");
-		    var docNumber = mc.getProperty("uri.var.docNumber");
-		    var txnDate = mc.getProperty("uri.var.txnDate");
-		    var departmentRef = mc.getProperty("uri.var.departmentRef");
-		    var privateNote = mc.getProperty("uri.var.privateNote");
-		    var txnStatus = mc.getProperty("uri.var.txnStatus");
-		    var linkedTxn = mc.getProperty("uri.var.linkedTxn");
-		    var txnTaxDetail = mc.getProperty("uri.var.txnTaxDetail");
-		    var autoIncrementDocNumber = mc.getProperty("uri.var.autoIncrementDocNumber");
-		    var customerMemo = mc.getProperty("uri.var.customerMemo");
-		    var billAddr = mc.getProperty("uri.var.billAddr");
-		    var classRef = mc.getProperty("uri.var.classRef");
-		    var shipAddr = mc.getProperty("uri.var.shipAddr");
-		    var shipMethodRef = mc.getProperty("uri.var.shipMethodRef");
-		    var shipDate = mc.getProperty("uri.var.shipDate");
-		    var trackingNum = mc.getProperty("uri.var.trackingNum");
-		    var printStatus = mc.getProperty("uri.var.printStatus");
-		    var emailStatus = mc.getProperty("uri.var.emailStatus");
-		    var billEmail = mc.getProperty("uri.var.billEmail");
-		    var paymentRefNum = mc.getProperty("uri.var.paymentRefNum");
-		    var paymentMethodRef = mc.getProperty("uri.var.paymentMethodRef");
-		    var depositToAccountRef = mc.getProperty("uri.var.depositToAccountRef");
-		    var applyTaxAfterDiscount = mc.getProperty("uri.var.applyTaxAfterDiscount");
-		    var currencyRef = mc.getProperty("uri.var.currencyRef");
-		    var exchangeRate = mc.getProperty("uri.var.exchangeRate");
-		    var globalTaxCalculation = mc.getProperty("uri.var.globalTaxCalculation");
-		    var customerRef = mc.getProperty("uri.var.customerRef");
-		    
-		    if(customField != null && customField != ''){
-		    	payload.CustomField = eval("("+customField+")");
-		    }
-		    
-		    if(docNumber != null && docNumber != ''){
-		    	payload.DocNumber = docNumber;
-		    }
-		    
-		    if(txnDate != null && txnDate != ''){
-		    	payload.TxnDate = txnDate;
-		    }
-		    
-		    if(departmentRef != null && departmentRef != ''){
-		    	payload.DepartmentRef = eval("("+departmentRef+")");
-		    }
-		    
-		    if(txnStatus != null && txnStatus != ''){
-		    	payload.TxnStatus = txnStatus;
-		    }
-		    
-		    if(privateNote != null && privateNote != ''){
-		    	payload.PrivateNote =  privateNote;
-		    }
-		    
-		    if(linkedTxn != null && linkedTxn != ''){
-		    	payload.LinkedTxn = eval("("+linkedTxn+")");
-		    }
-		    
-		    if(txnTaxDetail != null && txnTaxDetail != ''){
-		    	payload.TxnTaxDetail = eval("(" + txnTaxDetail + ")");
-		    }
-		    
-		    if(autoIncrementDocNumber != null && autoIncrementDocNumber != ''){
-		    	payload.AutoDocNumber = autoIncrementDocNumber;
-		    }
-		    
-		    if(customerMemo != null && customerMemo != ''){
-		    	payload.CustomerMemo = eval("(" + customerMemo + ")");
-		    }
-		    
-		    if(customerRef != null && customerRef != ''){
-		    	payload.CustomerRef = eval("(" + customerRef + ")");
-		    }
-		    
-		    if(billAddr != null && billAddr != ''){
-		    	payload.BillAddr = eval("(" + billAddr + ")");
-		    }
-		    
-		    if(classRef != null && classRef != ''){
-		    	payload.ClassRef = eval("(" + classRef + ")");
-		    }
-		    
-		    if(shipAddr != null && shipAddr != ''){
-		    	payload.ShipAddr = eval("(" + shipAddr + ")");
-		    }
-		    
-		    if(shipMethodRef != null && shipMethodRef != ''){
-		    	payload.ShipMethodRef = eval("(" + shipMethodRef + ")");
-		    	
-		    }
-		    
-		    if(shipDate != null && shipDate != ''){
-		    	payload.ShipDate = shipDate;
-		    }
-		    
-		    if(trackingNum != null && trackingNum != ''){
-		    	payload.TrackingNum = trackingNum;		    	
-		    }
-		    
-		    if(printStatus != null && printStatus != ''){
-		    	payload.PrintStatus = printStatus;
-		    }
-		    
-		    if(emailStatus != null && emailStatus != ''){
-		    	payload.EmailStatus = emailStatus;
-		    }
-		    
-		    if(billEmail != null && billEmail != ''){
-		    	payload.BillEmail = eval("(" + billEmail + ")");
-		    }
-		    
-		    if(paymentRefNum != null && paymentRefNum != ''){
-		    	payload.PaymentRefNum = paymentRefNum;
-		    }
-		    
-		    if(paymentMethodRef != null && paymentMethodRef != ''){
-		    	payload.PaymentMethodRef = eval("(" + paymentMethodRef + ")");
-		    }
-		    
-		    if(depositToAccountRef != null && depositToAccountRef != ''){
-		    	payload.DepositToAccountRef = eval("(" + depositToAccountRef + ")");
-		    }
-		    
-		    if(applyTaxAfterDiscount != null && applyTaxAfterDiscount != ''){
-		    	payload.ApplyTaxAfterDiscount = applyTaxAfterDiscount;
-		    }
-		    
-		    if(currencyRef != null && currencyRef != ''){
-		    	payload.CurrencyRef = eval("(" + currencyRef + ")");
-		    }
-		    
-		    if(exchangeRate != null && exchangeRate != ''){
-		    	payload.ExchangeRate = exchangeRate;
-		    }
-		    
-		    if(globalTaxCalculation != null && globalTaxCalculation != ''){
-		    	payload.GlobalTaxCalculation = globalTaxCalculation;
-		    }
-		    mc.setPayloadJSON(payload);
-		]]>
+            payload = mc.getPayloadJSON();
+            var customField = mc.getProperty("uri.var.customField");
+            var docNumber = mc.getProperty("uri.var.docNumber");
+            var txnDate = mc.getProperty("uri.var.txnDate");
+            var departmentRef = mc.getProperty("uri.var.departmentRef");
+            var privateNote = mc.getProperty("uri.var.privateNote");
+            var txnStatus = mc.getProperty("uri.var.txnStatus");
+            var linkedTxn = mc.getProperty("uri.var.linkedTxn");
+            var txnTaxDetail = mc.getProperty("uri.var.txnTaxDetail");
+            var autoIncrementDocNumber = mc.getProperty("uri.var.autoIncrementDocNumber");
+            var customerMemo = mc.getProperty("uri.var.customerMemo");
+            var billAddr = mc.getProperty("uri.var.billAddr");
+            var classRef = mc.getProperty("uri.var.classRef");
+            var shipAddr = mc.getProperty("uri.var.shipAddr");
+            var shipMethodRef = mc.getProperty("uri.var.shipMethodRef");
+            var shipDate = mc.getProperty("uri.var.shipDate");
+            var trackingNum = mc.getProperty("uri.var.trackingNum");
+            var printStatus = mc.getProperty("uri.var.printStatus");
+            var emailStatus = mc.getProperty("uri.var.emailStatus");
+            var billEmail = mc.getProperty("uri.var.billEmail");
+            var paymentRefNum = mc.getProperty("uri.var.paymentRefNum");
+            var paymentMethodRef = mc.getProperty("uri.var.paymentMethodRef");
+            var depositToAccountRef = mc.getProperty("uri.var.depositToAccountRef");
+            var applyTaxAfterDiscount = mc.getProperty("uri.var.applyTaxAfterDiscount");
+            var currencyRef = mc.getProperty("uri.var.currencyRef");
+            var exchangeRate = mc.getProperty("uri.var.exchangeRate");
+            var globalTaxCalculation = mc.getProperty("uri.var.globalTaxCalculation");
+            var customerRef = mc.getProperty("uri.var.customerRef");
+
+            if(customField != null && customField != ''){
+                payload.CustomField = eval("("+customField+")");
+            }
+
+            if(docNumber != null && docNumber != ''){
+                payload.DocNumber = docNumber;
+            }
+
+            if(txnDate != null && txnDate != ''){
+                payload.TxnDate = txnDate;
+            }
+
+            if(departmentRef != null && departmentRef != ''){
+                payload.DepartmentRef = eval("("+departmentRef+")");
+            }
+
+            if(txnStatus != null && txnStatus != ''){
+                payload.TxnStatus = txnStatus;
+            }
+
+            if(privateNote != null && privateNote != ''){
+                payload.PrivateNote =  privateNote;
+            }
+
+            if(linkedTxn != null && linkedTxn != ''){
+                payload.LinkedTxn = eval("("+linkedTxn+")");
+            }
+
+            if(txnTaxDetail != null && txnTaxDetail != ''){
+                payload.TxnTaxDetail = eval("(" + txnTaxDetail + ")");
+            }
+
+            if(autoIncrementDocNumber != null && autoIncrementDocNumber != ''){
+                payload.AutoDocNumber = autoIncrementDocNumber;
+            }
+
+            if(customerMemo != null && customerMemo != ''){
+                payload.CustomerMemo = eval("(" + customerMemo + ")");
+            }
+
+            if(customerRef != null && customerRef != ''){
+                payload.CustomerRef = eval("(" + customerRef + ")");
+            }
+
+            if(billAddr != null && billAddr != ''){
+                payload.BillAddr = eval("(" + billAddr + ")");
+            }
+
+            if(classRef != null && classRef != ''){
+                payload.ClassRef = eval("(" + classRef + ")");
+            }
+
+            if(shipAddr != null && shipAddr != ''){
+                payload.ShipAddr = eval("(" + shipAddr + ")");
+            }
+
+            if(shipMethodRef != null && shipMethodRef != ''){
+                payload.ShipMethodRef = eval("(" + shipMethodRef + ")");
+
+            }
+
+            if(shipDate != null && shipDate != ''){
+                payload.ShipDate = shipDate;
+            }
+
+            if(trackingNum != null && trackingNum != ''){
+                payload.TrackingNum = trackingNum;
+            }
+
+            if(printStatus != null && printStatus != ''){
+                payload.PrintStatus = printStatus;
+            }
+
+            if(emailStatus != null && emailStatus != ''){
+                payload.EmailStatus = emailStatus;
+            }
+
+            if(billEmail != null && billEmail != ''){
+                payload.BillEmail = eval("(" + billEmail + ")");
+            }
+
+            if(paymentRefNum != null && paymentRefNum != ''){
+                payload.PaymentRefNum = paymentRefNum;
+            }
+
+            if(paymentMethodRef != null && paymentMethodRef != ''){
+                payload.PaymentMethodRef = eval("(" + paymentMethodRef + ")");
+            }
+
+            if(depositToAccountRef != null && depositToAccountRef != ''){
+                payload.DepositToAccountRef = eval("(" + depositToAccountRef + ")");
+            }
+
+            if(applyTaxAfterDiscount != null && applyTaxAfterDiscount != ''){
+                payload.ApplyTaxAfterDiscount = applyTaxAfterDiscount;
+            }
+
+            if(currencyRef != null && currencyRef != ''){
+                payload.CurrencyRef = eval("(" + currencyRef + ")");
+            }
+
+            if(exchangeRate != null && exchangeRate != ''){
+                payload.ExchangeRate = exchangeRate;
+            }
+
+            if(globalTaxCalculation != null && globalTaxCalculation != ''){
+                payload.GlobalTaxCalculation = globalTaxCalculation;
+            }
+            mc.setPayloadJSON(payload);
+        ]]>
         </script>
         <call>
             <endpoint>

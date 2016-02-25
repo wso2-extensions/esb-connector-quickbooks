@@ -1,20 +1,20 @@
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
- ~  Version 2.0 (the "License"); you may not use this file except
- ~  in compliance with the License.
- ~  You may obtain a copy of the License at
- ~
- ~    http://www.apache.org/licenses/LICENSE-2.0
- ~
- ~  Unless required by applicable law or agreed to in writing,
- ~  software distributed under the License is distributed on an
- ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- ~  KIND, either express or implied.  See the License for the
- ~  specific language governing permissions and limitations
- ~  under the License.
--->
+  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~   WSO2 Inc. licenses this file to you under the Apache License,
+  ~   Version 2.0 (the "License"); you may not use this file except
+  ~   in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing,
+  ~  software distributed under the License is distributed on an
+  ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~  KIND, either express or implied.  See the License for the
+  ~  specific language governing permissions and limitations
+  ~  under the License.
+  -->
 <template name="createPurchase" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="docNumber" description="Reference number for the transaction."/>
     <parameter name="txnDate" description="The date entered by the user when this transaction occurred."/>
@@ -75,72 +75,72 @@
         </payloadFactory>
         <script language="js">
             <![CDATA[
-				//request body param variables
-				var payload = mc.getPayloadJSON();
-				
-				var docNumber = mc.getProperty('uri.var.docNumber');
-				var txnDate = mc.getProperty('uri.var.txnDate');
-				var privateNote = mc.getProperty('uri.var.privateNote');
-				var line = mc.getProperty('uri.var.line');
-				var entityRef = mc.getProperty('uri.var.entityRef');				
-				var credit = mc.getProperty('uri.var.credit');					
-				var printStatus = mc.getProperty('uri.var.printStatus');					
-				var departmentRef = mc.getProperty('uri.var.departmentRef');
-				var txnTaxDetail = mc.getProperty('uri.var.txnTaxDetail');				
-				var currencyRef = mc.getProperty('uri.var.currencyRef');
-				var exchangeRate = mc.getProperty('uri.var.exchangeRate');				
-				var globalTaxCalculation = mc.getProperty('uri.var.globalTaxCalculation');
-				
-				if (docNumber != null && docNumber != "") {
-					payload.DocNumber = docNumber;
-				}
-				
-				if (txnDate != null && txnDate != "") {
-					payload.TxnDate = txnDate;
-				}
-				
-				if (departmentRef != null && departmentRef != "") {
-					payload.DepartmentRef = eval("("+ departmentRef +")");
-				}				
-				
-				if (currencyRef != null && currencyRef != "") {
-					payload.CurrencyRef = eval("("+ currencyRef +")");
-				}
-				
-				if (exchangeRate != null && exchangeRate != "") {
-					payload.ExchangeRate = exchangeRate;
-				}
-				
-				if (privateNote != null && privateNote != "") {
-					payload.PrivateNote = privateNote;
-				}
-				
-				if (line != null && line != "") {
-					payload.Line = eval("("+ line +")");
-				}
-				
-				if (txnTaxDetail != null && txnTaxDetail != "") {
-					payload.TxnTaxDetail = eval("("+ txnTaxDetail +")");
-				}								
-				
-				if (entityRef != null && entityRef != "") {
-					payload.EntityRef = eval("("+ entityRef +")");
-				}								
-				
-				if (credit != null && credit != "") {
-					payload.Credit = credit;
-				}
-											
-				if (printStatus != null && printStatus != "") {
-					payload.PrintStatus = printStatus;
-				}
-				
-				if (globalTaxCalculation != null && globalTaxCalculation != "") {
-					payload.GlobalTaxCalculation = globalTaxCalculation;
-				}
-				
-				mc.setPayloadJSON(payload);
-			]]>
+                //request body param variables
+                var payload = mc.getPayloadJSON();
+
+                var docNumber = mc.getProperty('uri.var.docNumber');
+                var txnDate = mc.getProperty('uri.var.txnDate');
+                var privateNote = mc.getProperty('uri.var.privateNote');
+                var line = mc.getProperty('uri.var.line');
+                var entityRef = mc.getProperty('uri.var.entityRef');
+                var credit = mc.getProperty('uri.var.credit');
+                var printStatus = mc.getProperty('uri.var.printStatus');
+                var departmentRef = mc.getProperty('uri.var.departmentRef');
+                var txnTaxDetail = mc.getProperty('uri.var.txnTaxDetail');
+                var currencyRef = mc.getProperty('uri.var.currencyRef');
+                var exchangeRate = mc.getProperty('uri.var.exchangeRate');
+                var globalTaxCalculation = mc.getProperty('uri.var.globalTaxCalculation');
+
+                if (docNumber != null && docNumber != "") {
+                    payload.DocNumber = docNumber;
+                }
+
+                if (txnDate != null && txnDate != "") {
+                    payload.TxnDate = txnDate;
+                }
+
+                if (departmentRef != null && departmentRef != "") {
+                    payload.DepartmentRef = eval("("+ departmentRef +")");
+                }
+
+                if (currencyRef != null && currencyRef != "") {
+                    payload.CurrencyRef = eval("("+ currencyRef +")");
+                }
+
+                if (exchangeRate != null && exchangeRate != "") {
+                    payload.ExchangeRate = exchangeRate;
+                }
+
+                if (privateNote != null && privateNote != "") {
+                    payload.PrivateNote = privateNote;
+                }
+
+                if (line != null && line != "") {
+                    payload.Line = eval("("+ line +")");
+                }
+
+                if (txnTaxDetail != null && txnTaxDetail != "") {
+                    payload.TxnTaxDetail = eval("("+ txnTaxDetail +")");
+                }
+
+                if (entityRef != null && entityRef != "") {
+                    payload.EntityRef = eval("("+ entityRef +")");
+                }
+
+                if (credit != null && credit != "") {
+                    payload.Credit = credit;
+                }
+
+                if (printStatus != null && printStatus != "") {
+                    payload.PrintStatus = printStatus;
+                }
+
+                if (globalTaxCalculation != null && globalTaxCalculation != "") {
+                    payload.GlobalTaxCalculation = globalTaxCalculation;
+                }
+
+                mc.setPayloadJSON(payload);
+            ]]>
         </script>
         <call>
             <endpoint>

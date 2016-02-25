@@ -1,20 +1,20 @@
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
- ~  Version 2.0 (the "License"); you may not use this file except
- ~  in compliance with the License.
- ~  You may obtain a copy of the License at
- ~
- ~    http://www.apache.org/licenses/LICENSE-2.0
- ~
- ~  Unless required by applicable law or agreed to in writing,
- ~  software distributed under the License is distributed on an
- ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- ~  KIND, either express or implied.  See the License for the
- ~  specific language governing permissions and limitations
- ~  under the License.
--->
+  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~   WSO2 Inc. licenses this file to you under the Apache License,
+  ~   Version 2.0 (the "License"); you may not use this file except
+  ~   in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing,
+  ~  software distributed under the License is distributed on an
+  ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~  KIND, either express or implied.  See the License for the
+  ~  specific language governing permissions and limitations
+  ~  under the License.
+  -->
 <template name="createCustomer" xmlns="http://ws.apache.org/ns/synapse">
     <!-- optional parameters -->
     <parameter name="title" description="Title of the person."/>
@@ -110,175 +110,175 @@
         </payloadFactory>
         <script language="js">
             <![CDATA[
-				//request body param variables
-				var payload = mc.getPayloadJSON();
-				var title = mc.getProperty('uri.var.title');
-				var givenName = mc.getProperty('uri.var.givenName');
-				var middleName = mc.getProperty('uri.var.middleName');
-				var familyName = mc.getProperty('uri.var.familyName');
-				var suffix = mc.getProperty('uri.var.suffix');
-				var fullyQualifiedName = mc.getProperty('uri.var.fullyQualifiedName');
-				var companyName = mc.getProperty('uri.var.companyName');
-				var displayName = mc.getProperty('uri.var.displayName');
-				var printOnCheckName = mc.getProperty('uri.var.printOnCheckName');
-				var active = mc.getProperty('uri.var.active');
-				var primaryPhone = mc.getProperty('uri.var.primaryPhone');
-				var alternatePhone = mc.getProperty('uri.var.alternatePhone');
-				var mobile = mc.getProperty('uri.var.mobile');
-				var fax = mc.getProperty('uri.var.fax');
-				var primaryEmailAddr = mc.getProperty('uri.var.primaryEmailAddr');
-				var webAddr = mc.getProperty('uri.var.webAddr');
-				var defaultTaxCodeRef = mc.getProperty('uri.var.defaultTaxCodeRef');
-				var taxable = mc.getProperty('uri.var.taxable');
-				var billAddr = mc.getProperty('uri.var.billAddr');
-				var shipAddr = mc.getProperty('uri.var.shipAddr');
-				var notes = mc.getProperty('uri.var.notes');
-				var job = mc.getProperty('uri.var.job');
-				var billWithParent = mc.getProperty('uri.var.billWithParent');
-				var parentRef = mc.getProperty('uri.var.parentRef');
-				var level = mc.getProperty('uri.var.level');
-				var salesTermRef = mc.getProperty('uri.var.salesTermRef');
-				var paymentMethodRef = mc.getProperty('uri.var.paymentMethodRef');
-				var balance = mc.getProperty('uri.var.balance');
-				var openBalanceDate = mc.getProperty('uri.var.openBalanceDate');
-				var balanceWithJobs = mc.getProperty('uri.var.balanceWithJobs');
-				var currencyRef = mc.getProperty('uri.var.currencyRef');
-				var preferredDeliveryMethod = mc.getProperty('uri.var.preferredDeliveryMethod');
-				var resaleNum = mc.getProperty('uri.var.resaleNum');
+                //request body param variables
+                var payload = mc.getPayloadJSON();
+                var title = mc.getProperty('uri.var.title');
+                var givenName = mc.getProperty('uri.var.givenName');
+                var middleName = mc.getProperty('uri.var.middleName');
+                var familyName = mc.getProperty('uri.var.familyName');
+                var suffix = mc.getProperty('uri.var.suffix');
+                var fullyQualifiedName = mc.getProperty('uri.var.fullyQualifiedName');
+                var companyName = mc.getProperty('uri.var.companyName');
+                var displayName = mc.getProperty('uri.var.displayName');
+                var printOnCheckName = mc.getProperty('uri.var.printOnCheckName');
+                var active = mc.getProperty('uri.var.active');
+                var primaryPhone = mc.getProperty('uri.var.primaryPhone');
+                var alternatePhone = mc.getProperty('uri.var.alternatePhone');
+                var mobile = mc.getProperty('uri.var.mobile');
+                var fax = mc.getProperty('uri.var.fax');
+                var primaryEmailAddr = mc.getProperty('uri.var.primaryEmailAddr');
+                var webAddr = mc.getProperty('uri.var.webAddr');
+                var defaultTaxCodeRef = mc.getProperty('uri.var.defaultTaxCodeRef');
+                var taxable = mc.getProperty('uri.var.taxable');
+                var billAddr = mc.getProperty('uri.var.billAddr');
+                var shipAddr = mc.getProperty('uri.var.shipAddr');
+                var notes = mc.getProperty('uri.var.notes');
+                var job = mc.getProperty('uri.var.job');
+                var billWithParent = mc.getProperty('uri.var.billWithParent');
+                var parentRef = mc.getProperty('uri.var.parentRef');
+                var level = mc.getProperty('uri.var.level');
+                var salesTermRef = mc.getProperty('uri.var.salesTermRef');
+                var paymentMethodRef = mc.getProperty('uri.var.paymentMethodRef');
+                var balance = mc.getProperty('uri.var.balance');
+                var openBalanceDate = mc.getProperty('uri.var.openBalanceDate');
+                var balanceWithJobs = mc.getProperty('uri.var.balanceWithJobs');
+                var currencyRef = mc.getProperty('uri.var.currencyRef');
+                var preferredDeliveryMethod = mc.getProperty('uri.var.preferredDeliveryMethod');
+                var resaleNum = mc.getProperty('uri.var.resaleNum');
 
-				if (title != null && title != "") {
-					payload.Title = title;
-				}
-				
-				if (givenName != null && givenName != "") {
-					payload.GivenName = givenName;
-				}
-				
-				if (middleName != null && middleName != "") {
-					payload.MiddleName = middleName;
-				}
-				
-				if (familyName != null && familyName != "") {
-					payload.FamilyName = familyName;
-				}
-				
-				if (suffix != null && suffix != "") {
-					payload.Suffix = suffix;
-				}
-				
-				if (fullyQualifiedName != null && fullyQualifiedName != "") {
-					payload.FullyQualifiedName = fullyQualifiedName;
-				}
-				
-				if (companyName != null && companyName != "") {
-					payload.CompanyName = companyName;
-				}
-				
-				if (displayName != null && displayName != "") {
-					payload.DisplayName = displayName;
-				}
-				
-				if (printOnCheckName != null && printOnCheckName != "") {
-					payload.PrintOnCheckName = printOnCheckName;
-				}
-				
-				if (active != null && active != "") {
-					payload.Active = active;
-				}
-				
-				if (primaryPhone != null && primaryPhone != "") {
-					payload.PrimaryPhone = eval("("+ primaryPhone +")");
-				}
-				
-				if (alternatePhone != null && alternatePhone != "") {
-					payload.AlternatePhone = eval("("+ alternatePhone +")");
-				}
-				
-				if (mobile != null && mobile != "") {
-					payload.Mobile = eval("("+ mobile +")");
-				}
-				
-				if (fax != null && fax != "") {
-					payload.Fax = eval("("+ fax +")");
-				}
-				
-				if (primaryEmailAddr != null && primaryEmailAddr != "") {
-					payload.PrimaryEmailAddr = eval("("+ primaryEmailAddr +")");
-				}
-				
-				if (webAddr != null && webAddr != "") {
-					payload.WebAddr = eval("("+ webAddr +")");
-				}
-				
-				if (defaultTaxCodeRef != null && defaultTaxCodeRef != "") {
-					payload.DefaultTaxCodeRef = eval("("+ defaultTaxCodeRef +")");
-				}				
-				
-				if (taxable != null && taxable != "") {
-					payload.Taxable = taxable;
-				}
-				
-				if (billAddr != null && billAddr != "") {
-					payload.BillAddr = eval("("+ billAddr +")");
-				}
-				
-				if (shipAddr != null && shipAddr != "") {
-					payload.ShipAddr = eval("("+ shipAddr +")");
-				}
-				
-				if (notes != null && notes != "") {
-					payload.Notes = notes;
-				}
-				
-				if (job != null && job != "") {
-					payload.Job = job;
-				}
-				
-				if (billWithParent != null && billWithParent != "") {
-					payload.BillWithParent = billWithParent;
-				}
-				
-				if (parentRef != null && parentRef != "") {
-					payload.ParentRef = eval("("+ parentRef +")");
-				}				
+                if (title != null && title != "") {
+                    payload.Title = title;
+                }
 
-				if (level != null && level != "") {
-					payload.Level = level;
-				}
-				
-				if (salesTermRef != null && salesTermRef != "") {
-					payload.SalesTermRef = eval("("+ salesTermRef +")");
-				}	
-				
-				if (paymentMethodRef != null && paymentMethodRef != "") {
-					payload.PaymentMethodRef = eval("("+ paymentMethodRef +")");
-				}				
-				
-				if (balance != null && balance != "") {
-					payload.Balance = balance;
-				}
-				
-				if (openBalanceDate != null && openBalanceDate != "") {
-					payload.OpenBalanceDate = openBalanceDate;
-				}
-				
-				if (balanceWithJobs != null && balanceWithJobs != "") {
-					payload.BalanceWithJobs = balanceWithJobs;
-				}
-				
-				if (currencyRef != null && currencyRef != "") {
-					payload.CurrencyRef = eval("("+ currencyRef +")");
-				}
-				
-				if (preferredDeliveryMethod != null && preferredDeliveryMethod != "") {
-					payload.PreferredDeliveryMethod = preferredDeliveryMethod;
-				}
-				
-				if (resaleNum != null && resaleNum != "") {
-					payload.ResaleNum = resaleNum;
-				}
-				mc.setPayloadJSON(payload);
-		]]>
+                if (givenName != null && givenName != "") {
+                    payload.GivenName = givenName;
+                }
+
+                if (middleName != null && middleName != "") {
+                    payload.MiddleName = middleName;
+                }
+
+                if (familyName != null && familyName != "") {
+                    payload.FamilyName = familyName;
+                }
+
+                if (suffix != null && suffix != "") {
+                    payload.Suffix = suffix;
+                }
+
+                if (fullyQualifiedName != null && fullyQualifiedName != "") {
+                    payload.FullyQualifiedName = fullyQualifiedName;
+                }
+
+                if (companyName != null && companyName != "") {
+                    payload.CompanyName = companyName;
+                }
+
+                if (displayName != null && displayName != "") {
+                    payload.DisplayName = displayName;
+                }
+
+                if (printOnCheckName != null && printOnCheckName != "") {
+                    payload.PrintOnCheckName = printOnCheckName;
+                }
+
+                if (active != null && active != "") {
+                    payload.Active = active;
+                }
+
+                if (primaryPhone != null && primaryPhone != "") {
+                    payload.PrimaryPhone = eval("("+ primaryPhone +")");
+                }
+
+                if (alternatePhone != null && alternatePhone != "") {
+                    payload.AlternatePhone = eval("("+ alternatePhone +")");
+                }
+
+                if (mobile != null && mobile != "") {
+                    payload.Mobile = eval("("+ mobile +")");
+                }
+
+                if (fax != null && fax != "") {
+                    payload.Fax = eval("("+ fax +")");
+                }
+
+                if (primaryEmailAddr != null && primaryEmailAddr != "") {
+                    payload.PrimaryEmailAddr = eval("("+ primaryEmailAddr +")");
+                }
+
+                if (webAddr != null && webAddr != "") {
+                    payload.WebAddr = eval("("+ webAddr +")");
+                }
+
+                if (defaultTaxCodeRef != null && defaultTaxCodeRef != "") {
+                    payload.DefaultTaxCodeRef = eval("("+ defaultTaxCodeRef +")");
+                }
+
+                if (taxable != null && taxable != "") {
+                    payload.Taxable = taxable;
+                }
+
+                if (billAddr != null && billAddr != "") {
+                    payload.BillAddr = eval("("+ billAddr +")");
+                }
+
+                if (shipAddr != null && shipAddr != "") {
+                    payload.ShipAddr = eval("("+ shipAddr +")");
+                }
+
+                if (notes != null && notes != "") {
+                    payload.Notes = notes;
+                }
+
+                if (job != null && job != "") {
+                    payload.Job = job;
+                }
+
+                if (billWithParent != null && billWithParent != "") {
+                    payload.BillWithParent = billWithParent;
+                }
+
+                if (parentRef != null && parentRef != "") {
+                    payload.ParentRef = eval("("+ parentRef +")");
+                }
+
+                if (level != null && level != "") {
+                    payload.Level = level;
+                }
+
+                if (salesTermRef != null && salesTermRef != "") {
+                    payload.SalesTermRef = eval("("+ salesTermRef +")");
+                }
+
+                if (paymentMethodRef != null && paymentMethodRef != "") {
+                    payload.PaymentMethodRef = eval("("+ paymentMethodRef +")");
+                }
+
+                if (balance != null && balance != "") {
+                    payload.Balance = balance;
+                }
+
+                if (openBalanceDate != null && openBalanceDate != "") {
+                    payload.OpenBalanceDate = openBalanceDate;
+                }
+
+                if (balanceWithJobs != null && balanceWithJobs != "") {
+                    payload.BalanceWithJobs = balanceWithJobs;
+                }
+
+                if (currencyRef != null && currencyRef != "") {
+                    payload.CurrencyRef = eval("("+ currencyRef +")");
+                }
+
+                if (preferredDeliveryMethod != null && preferredDeliveryMethod != "") {
+                    payload.PreferredDeliveryMethod = preferredDeliveryMethod;
+                }
+
+                if (resaleNum != null && resaleNum != "") {
+                    payload.ResaleNum = resaleNum;
+                }
+                mc.setPayloadJSON(payload);
+        ]]>
         </script>
         <call>
             <endpoint>

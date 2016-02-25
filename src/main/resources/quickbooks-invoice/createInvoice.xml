@@ -1,20 +1,20 @@
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
- ~  Version 2.0 (the "License"); you may not use this file except
- ~  in compliance with the License.
- ~  You may obtain a copy of the License at
- ~
- ~    http://www.apache.org/licenses/LICENSE-2.0
- ~
- ~  Unless required by applicable law or agreed to in writing,
- ~  software distributed under the License is distributed on an
- ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- ~  KIND, either express or implied.  See the License for the
- ~  specific language governing permissions and limitations
- ~  under the License.
--->
+  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~   WSO2 Inc. licenses this file to you under the Apache License,
+  ~   Version 2.0 (the "License"); you may not use this file except
+  ~   in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing,
+  ~  software distributed under the License is distributed on an
+  ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~  KIND, either express or implied.  See the License for the
+  ~  specific language governing permissions and limitations
+  ~  under the License.
+  -->
 <template name="createInvoice" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="customField" description="Custom field or data extension."/>
     <parameter name="docNumber" description="Reference number for the transaction."/>
@@ -111,151 +111,151 @@
         <!-- Building payload for optional params -->
         <script language="js">
         <![CDATA[
-		    payload = mc.getPayloadJSON();
-		    var customField = mc.getProperty("uri.var.customField");
-		    var dueDate = mc.getProperty("uri.var.dueDate");
-		    var docNumber = mc.getProperty("uri.var.docNumber");
-		    var txnDate = mc.getProperty("uri.var.txnDate");
-		    var departmentRef = mc.getProperty("uri.var.departmentRef");
-		    var currencyRef = mc.getProperty("uri.var.currencyRef");
-		    var exchangeRate = mc.getProperty("uri.var.exchangeRate");
-		    var privateNote = mc.getProperty("uri.var.privateNote");
-		    var linkedTxn = mc.getProperty("uri.var.linkedTxn");
-		    var txnTaxDetail = mc.getProperty("uri.var.txnTaxDetail");
-		    var customerMemo = mc.getProperty("uri.var.customerMemo");
-		    var billAddr = mc.getProperty("uri.var.billAddr");
-		    var shipAddr = mc.getProperty("uri.var.shipAddr");
-		    var salesTermRef = mc.getProperty("uri.var.salesTermRef");
-		    var globalTaxCalculation = mc.getProperty("uri.var.globalTaxCalculation");
-		    var shipMethodRef = mc.getProperty("uri.var.shipMethodRef");
-		    var shipDate = mc.getProperty("uri.var.shipDate");
-		    var trackingNum = mc.getProperty("uri.var.trackingNum");
-		    var totalAmt = mc.getProperty("uri.var.totalAmt");
-		    var homeTotalAmt = mc.getProperty("uri.var.homeTotalAmt");
-		    var applyTaxAfterDiscount = mc.getProperty("uri.var.applyTaxAfterDiscount");
-		    var printStatus = mc.getProperty("uri.var.printStatus");
-		    var emailStatus = mc.getProperty("uri.var.emailStatus");
-		    var billEmail = mc.getProperty("uri.var.billEmail");
-		    var balance = mc.getProperty("uri.var.balance");
-		    var depositToAccountRef = mc.getProperty("uri.var.depositToAccountRef");
-		    var deposit = mc.getProperty("uri.var.deposit");
-		    var allowIPNPayment = mc.getProperty("uri.var.allowIPNPayment");
-		    
-		    if(customField != null && customField != ''){
-		    	payload.CustomField = eval("("+ customField +")");
-		    }
-		    
-		    if(docNumber != null && docNumber != ''){
-		    	payload.DocNumber = docNumber;
-		    }
-		    
-		    if(txnDate != null && txnDate != ''){
-		    	payload.TxnDate = txnDate;
-		    }
-		    
-		    if(departmentRef != null && departmentRef != ''){
-		    	payload.DepartmentRef = eval("("+ departmentRef +")");
-		    }
-		    
-		    if(currencyRef != null && currencyRef != ''){
-		    	payload.CurrencyRef = eval("("+ currencyRef +")");
-		    }
-		    
-		    if(exchangeRate != null && exchangeRate != ''){
-		    	payload.ExchangeRate = exchangeRate;
-		    }
-		    
-		    if(privateNote != null && privateNote != ''){
-		    	payload.PrivateNote = privateNote;
-		    }
-		    
-		    if(linkedTxn != null && linkedTxn != ''){
-		    	payload.LinkedTxn = eval("("+ linkedTxn +")");
-		    }
-		    
-		    if(txnTaxDetail != null && txnTaxDetail != ''){
-		    	payload.TxnTaxDetail = eval("("+ txnTaxDetail +")");
-		    }
-		    
-		    if(customerMemo != null && customerMemo != ''){
-		    	payload.CustomerMemo = customerMemo;
-		    }
-		    
-		    if(billAddr != null && billAddr != ''){
-		    	payload.BillAddr = eval("("+ billAddr +")");
-		    }
-		    
-		    if(shipAddr != null && shipAddr != ''){
-		    	payload.ShipAddr = eval("("+ shipAddr +")");
-		    }
-		    
-		    if(salesTermRef != null && salesTermRef != ''){
-		    	payload.SalesTermRef = eval("("+ salesTermRef +")");		    	
-		    }
-		    
-		    if(dueDate != null && dueDate != ''){
-		    	payload.DueDate = dueDate;
-		    }
-		    
-		    if(globalTaxCalculation != null && globalTaxCalculation != ''){
-		    	payload.GlobalTaxCalculation = globalTaxCalculation;
-		    }
-		    
-		    if(shipMethodRef != null && shipMethodRef != ''){
-		    	payload.ShipMethodRef = eval("("+ shipMethodRef +")");;
-		    }
-		    
-		    if(shipDate != null && shipDate != ''){
-		    	payload.ShipDate = shipDate;
-		    }
-		    
-		    if(trackingNum != null && trackingNum != ''){
-		    	payload.TrackingNum = trackingNum;
-		    }
-		    
-		    if(totalAmt != null && totalAmt != ''){
-		    	payload.TotalAmt = totalAmt;
-		    }
-		    
-		    if(homeTotalAmt != null && homeTotalAmt != ''){
-		    	payload.HomeTotalAmt = homeTotalAmt;
-		    }
-		    
-		    if(applyTaxAfterDiscount != null && applyTaxAfterDiscount != ''){
-		    	payload.ApplyTaxAfterDiscount = applyTaxAfterDiscount;
-		    }
-		    
-		    if(printStatus != null && printStatus != ''){
-		    	payload.PrintStatus = printStatus;
-		    }
-		    
-		    if(emailStatus != null && emailStatus != ''){
-		    	payload.EmailStatus = emailStatus;
-		    }
-		    
-		    if(billEmail != null && billEmail != ''){
-		    	payload.BillEmail = billEmail;
-		    }
-		    
-		    if(balance != null && balance != ''){
-		    	payload.Balance = balance;
-		    }
-		    
-		    if(depositToAccountRef != null && depositToAccountRef != ''){
-		    	payload.DepositToAccountRef = eval("("+ depositToAccountRef +")");
-		    }
-		    
-		    if(deposit != null && deposit != ''){
-		    	payload.Deposit = deposit;		    	
-		    }
-		    
-		    if(allowIPNPayment != null && allowIPNPayment != ''){
-		    	payload.AllowIPNPayment = allowIPNPayment;
-		    }
-		    
-		    mc.setPayloadJSON(payload);
-		    
-		]]>
+            payload = mc.getPayloadJSON();
+            var customField = mc.getProperty("uri.var.customField");
+            var dueDate = mc.getProperty("uri.var.dueDate");
+            var docNumber = mc.getProperty("uri.var.docNumber");
+            var txnDate = mc.getProperty("uri.var.txnDate");
+            var departmentRef = mc.getProperty("uri.var.departmentRef");
+            var currencyRef = mc.getProperty("uri.var.currencyRef");
+            var exchangeRate = mc.getProperty("uri.var.exchangeRate");
+            var privateNote = mc.getProperty("uri.var.privateNote");
+            var linkedTxn = mc.getProperty("uri.var.linkedTxn");
+            var txnTaxDetail = mc.getProperty("uri.var.txnTaxDetail");
+            var customerMemo = mc.getProperty("uri.var.customerMemo");
+            var billAddr = mc.getProperty("uri.var.billAddr");
+            var shipAddr = mc.getProperty("uri.var.shipAddr");
+            var salesTermRef = mc.getProperty("uri.var.salesTermRef");
+            var globalTaxCalculation = mc.getProperty("uri.var.globalTaxCalculation");
+            var shipMethodRef = mc.getProperty("uri.var.shipMethodRef");
+            var shipDate = mc.getProperty("uri.var.shipDate");
+            var trackingNum = mc.getProperty("uri.var.trackingNum");
+            var totalAmt = mc.getProperty("uri.var.totalAmt");
+            var homeTotalAmt = mc.getProperty("uri.var.homeTotalAmt");
+            var applyTaxAfterDiscount = mc.getProperty("uri.var.applyTaxAfterDiscount");
+            var printStatus = mc.getProperty("uri.var.printStatus");
+            var emailStatus = mc.getProperty("uri.var.emailStatus");
+            var billEmail = mc.getProperty("uri.var.billEmail");
+            var balance = mc.getProperty("uri.var.balance");
+            var depositToAccountRef = mc.getProperty("uri.var.depositToAccountRef");
+            var deposit = mc.getProperty("uri.var.deposit");
+            var allowIPNPayment = mc.getProperty("uri.var.allowIPNPayment");
+
+            if(customField != null && customField != ''){
+                payload.CustomField = eval("("+ customField +")");
+            }
+
+            if(docNumber != null && docNumber != ''){
+                payload.DocNumber = docNumber;
+            }
+
+            if(txnDate != null && txnDate != ''){
+                payload.TxnDate = txnDate;
+            }
+
+            if(departmentRef != null && departmentRef != ''){
+                payload.DepartmentRef = eval("("+ departmentRef +")");
+            }
+
+            if(currencyRef != null && currencyRef != ''){
+                payload.CurrencyRef = eval("("+ currencyRef +")");
+            }
+
+            if(exchangeRate != null && exchangeRate != ''){
+                payload.ExchangeRate = exchangeRate;
+            }
+
+            if(privateNote != null && privateNote != ''){
+                payload.PrivateNote = privateNote;
+            }
+
+            if(linkedTxn != null && linkedTxn != ''){
+                payload.LinkedTxn = eval("("+ linkedTxn +")");
+            }
+
+            if(txnTaxDetail != null && txnTaxDetail != ''){
+                payload.TxnTaxDetail = eval("("+ txnTaxDetail +")");
+            }
+
+            if(customerMemo != null && customerMemo != ''){
+                payload.CustomerMemo = customerMemo;
+            }
+
+            if(billAddr != null && billAddr != ''){
+                payload.BillAddr = eval("("+ billAddr +")");
+            }
+
+            if(shipAddr != null && shipAddr != ''){
+                payload.ShipAddr = eval("("+ shipAddr +")");
+            }
+
+            if(salesTermRef != null && salesTermRef != ''){
+                payload.SalesTermRef = eval("("+ salesTermRef +")");
+            }
+
+            if(dueDate != null && dueDate != ''){
+                payload.DueDate = dueDate;
+            }
+
+            if(globalTaxCalculation != null && globalTaxCalculation != ''){
+                payload.GlobalTaxCalculation = globalTaxCalculation;
+            }
+
+            if(shipMethodRef != null && shipMethodRef != ''){
+                payload.ShipMethodRef = eval("("+ shipMethodRef +")");;
+            }
+
+            if(shipDate != null && shipDate != ''){
+                payload.ShipDate = shipDate;
+            }
+
+            if(trackingNum != null && trackingNum != ''){
+                payload.TrackingNum = trackingNum;
+            }
+
+            if(totalAmt != null && totalAmt != ''){
+                payload.TotalAmt = totalAmt;
+            }
+
+            if(homeTotalAmt != null && homeTotalAmt != ''){
+                payload.HomeTotalAmt = homeTotalAmt;
+            }
+
+            if(applyTaxAfterDiscount != null && applyTaxAfterDiscount != ''){
+                payload.ApplyTaxAfterDiscount = applyTaxAfterDiscount;
+            }
+
+            if(printStatus != null && printStatus != ''){
+                payload.PrintStatus = printStatus;
+            }
+
+            if(emailStatus != null && emailStatus != ''){
+                payload.EmailStatus = emailStatus;
+            }
+
+            if(billEmail != null && billEmail != ''){
+                payload.BillEmail = billEmail;
+            }
+
+            if(balance != null && balance != ''){
+                payload.Balance = balance;
+            }
+
+            if(depositToAccountRef != null && depositToAccountRef != ''){
+                payload.DepositToAccountRef = eval("("+ depositToAccountRef +")");
+            }
+
+            if(deposit != null && deposit != ''){
+                payload.Deposit = deposit;
+            }
+
+            if(allowIPNPayment != null && allowIPNPayment != ''){
+                payload.AllowIPNPayment = allowIPNPayment;
+            }
+
+            mc.setPayloadJSON(payload);
+
+        ]]>
         </script>
         <call>
             <endpoint>

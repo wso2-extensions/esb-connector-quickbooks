@@ -1,20 +1,20 @@
 <!--
- ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- ~
- ~  WSO2 Inc. licenses this file to you under the Apache License,
- ~  Version 2.0 (the "License"); you may not use this file except
- ~  in compliance with the License.
- ~  You may obtain a copy of the License at
- ~
- ~    http://www.apache.org/licenses/LICENSE-2.0
- ~
- ~  Unless required by applicable law or agreed to in writing,
- ~  software distributed under the License is distributed on an
- ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- ~  KIND, either express or implied.  See the License for the
- ~  specific language governing permissions and limitations
- ~  under the License.
--->
+  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~   WSO2 Inc. licenses this file to you under the Apache License,
+  ~   Version 2.0 (the "License"); you may not use this file except
+  ~   in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing,
+  ~  software distributed under the License is distributed on an
+  ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~  KIND, either express or implied.  See the License for the
+  ~  specific language governing permissions and limitations
+  ~  under the License.
+  -->
 <template name="createBillPayment" xmlns="http://ws.apache.org/ns/synapse">
     <!-- required parameters -->
     <parameter name="vendorRef" description="Specifies the vendor reference for this transaction"/>
@@ -80,17 +80,17 @@
                 //request body param variables
                 var payload = mc.getPayloadJSON();
                 var docNumber = mc.getProperty('uri.var.docNumber');
-				var txnDate = mc.getProperty('uri.var.txnDate');
-				var departmentRef = mc.getProperty('uri.var.departmentRef');
-				var currencyRef = mc.getProperty('uri.var.currencyRef');
-				var exchangeRate = mc.getProperty('uri.var.exchangeRate');
-				var line = mc.getProperty('uri.var.line');
-				var privateNote = mc.getProperty('uri.var.privateNote');
-				var aPAccountRef = mc.getProperty('uri.var.aPAccountRef');
-				var checkPayment = mc.getProperty('uri.var.checkPayment');
-				var creditCardPayment = mc.getProperty('uri.var.creditCardPayment');
-				var totalAmt = mc.getProperty('uri.var.totalAmt');
-				var processBillPayment = mc.getProperty('uri.var.processBillPayment');
+                var txnDate = mc.getProperty('uri.var.txnDate');
+                var departmentRef = mc.getProperty('uri.var.departmentRef');
+                var currencyRef = mc.getProperty('uri.var.currencyRef');
+                var exchangeRate = mc.getProperty('uri.var.exchangeRate');
+                var line = mc.getProperty('uri.var.line');
+                var privateNote = mc.getProperty('uri.var.privateNote');
+                var aPAccountRef = mc.getProperty('uri.var.aPAccountRef');
+                var checkPayment = mc.getProperty('uri.var.checkPayment');
+                var creditCardPayment = mc.getProperty('uri.var.creditCardPayment');
+                var totalAmt = mc.getProperty('uri.var.totalAmt');
+                var processBillPayment = mc.getProperty('uri.var.processBillPayment');
                 if (docNumber != null && docNumber != "") {
                     payload.DocNumber= docNumber;
                 }
