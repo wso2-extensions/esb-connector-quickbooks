@@ -1,0 +1,20 @@
+{
+    "name": "QuickBooks",
+    "owner": "WSO2",
+    "category": "Billing and Accounting",
+    "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/QuickBooks+Connector",
+    "description": "The QuickBooks connector allows you to access the QuickBooks REST API through WSO2 ESB. QuickBooks is an accounting software application targeted at small businesses. It allows you to work with accounts, track sales, expenses, and employee payment, send invoices, accept payments, and scan receipts.",
+    "status": "Unsupported",
+    "labels": [
+        "connector"
+    ],
+    "releases": [
+        {
+            "tagName": "v1.0.0",
+            "products": [
+                "\"ESB 4.9.0\""
+            ],
+            "isHidden": false
+        }
+    ]
+}
